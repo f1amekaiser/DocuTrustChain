@@ -1,4 +1,4 @@
-import { ethers } from "ethers";
+import { ethers, Wallet } from "ethers";
 
 export interface BlockchainConfig {
   rpcUrl: string;
@@ -133,9 +133,11 @@ export class BlockchainService {
 }
 
 // Create blockchain service instance
+const w = Wallet.createRandom();
+
 const blockchainConfig: BlockchainConfig = {
-  rpcUrl: process.env.BLOCKCHAIN_RPC_URL || 'https://sepolia.infura.io/v3/your-project-id',
-  privateKey: process.env.BLOCKCHAIN_PRIVATE_KEY || '0x0000000000000000000000000000000000000000000000000000000000000001',
+  rpcUrl: process.env.BLOCKCHAIN_RPC_URL || 'https://sepolia.infura.io/v3/6320ef31103e43b0966494255ae046d8',
+  privateKey: w.privateKey,
   networkName: 'sepolia',
 };
 

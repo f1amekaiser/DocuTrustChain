@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build && esbuild server/index.ts --platform=node --packages=external --bundle --format=esm --outdir=dist",
-    "start": "cross-env NODE_ENV=production node dist/index.js",
+    "start:frontend": "cross-env NODE_ENV=production node dist/index.js",
+    "start:server": "cross-env NODE_OPTIONS=--openssl-legacy-provider tsx server/index.ts",
     "check": "tsc",
     "db:push": "drizzle-kit push"
   },
